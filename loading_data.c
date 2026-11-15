@@ -59,8 +59,23 @@ int load_csv(const char *path, Dataset *ds) {
         }
         ds->nrows++;
 
-
     }
 
     return 1;
 }
+
+
+double *get_col(const Dataset *ds, const char *name) {
+    for (int i = 0; i < ds->ncols; i++) {
+        if (strcmp(ds->name[i], name) == 0) return ds->col[i];
+    }
+}
+
+
+
+void free_dataset(Dataset *ds) {
+    for (int i = 0; i < ds->ncols; i++) {
+        free(ds->col[i]);
+    }
+}
+

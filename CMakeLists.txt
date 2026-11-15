@@ -6,4 +6,8 @@ set(CMAKE_C_STANDARD 17)
 add_executable(econometrics_functions_practice main.c
         required_structures.h
         loading_data.c
-        loading_data.h)
+        loading_data.h
+        vector_summaries.c
+        vector_summaries.h
+        simple_regression.c
+        simple_regression.h)

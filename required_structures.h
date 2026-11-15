@@ -32,7 +32,6 @@ typedef struct { /* result of any hypothesis test */
 } TestResult;
 
 
-
 typedef struct { /* everything from one regression */
     int n, p, df; /* df = n - p */
     double *beta; /* length p */
@@ -45,6 +44,14 @@ typedef struct { /* everything from one regression */
     Matrix *xtx_inv; /* (X’X)^-1, kept for tests and predictions */
 } OLS;
 
+typedef struct {
+    int n;
+    double b0, b1;
+    double sst, sse, ssr, r2, sigma;
+    double se_b0, se_b1, t_b0, t_b1, p_b0, p_b1;
+    double ci_b1_lo, ci_bb1_hi;
+} SimpleOLS;
+
 
 typedef struct { /* a prediction at one point x0 */
     double fit;
@@ -52,7 +59,6 @@ typedef struct { /* a prediction at one point x0 */
     Interval ci; /* for the AVERAGE y at x0 */
     Interval pi; /* for ONE new y at x0 */
 } Prediction;
-
 
 
 #endif //ECONOMETRICS_FUNCTIONS_PRACTICE_REQUIRED_STRUCTURES_H
